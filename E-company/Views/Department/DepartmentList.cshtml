@@ -1,0 +1,84 @@
+﻿@using E_company.data
+@model VMDEPT
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DepartmentList</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post">
+        <div class="container">
+            <div class="row" style="margin-top:15px">
+                <div class="col-lg-10">
+                    <table class="table table-bordered">
+
+                        <thead>
+                            <tr>
+                                <th>Department Name</th>
+                                <th>Minimum Salary</th>
+                                <th>Maximum Salary</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Department dept in Model.departments)
+                            {
+                                <tr>
+                                    <td>@dept.DepartmentName</td>
+                                    <td>@dept.MinimumSalary</td>
+                                    <td>@dept.MaximumSalary</td>
+                                    <td><a asp-action="Details" asp-route-id="@dept.ID">Details</a></td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-6">
+                    <input type="submit" value="New Employee" class="btn btn-primary" asp-action="Employee" />
+                </div>
+            </div>
+            <div class="row" style="margin-top:30px">
+
+                <div class="col-lg-offset-0">
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Employee emp in Model.employees)
+                            {
+                                <tr>
+                                    <td><img src='@emp.Path' style="width:50px" /></td>
+                                    <td>@emp.Name</td>
+                                    <td>@emp.Phone</td>
+                                    <td><a asp-action="delete" asp-route-id="@emp.ID">Delete</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>

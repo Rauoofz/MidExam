@@ -1,0 +1,138 @@
+﻿@using E_company.Models
+@model VMCompany
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewEmployee</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        
+                            <label asp-for="emp.Name"></label>
+                        </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" asp-for="emp.Name" />
+                            <span asp-validation-for="emp.Name"></span>
+                        </div>
+                    
+                
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label asp-for="emp.Phone"></label>
+                    </div>
+                    </div>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" asp-for="emp.Phone" />
+                                <span asp-validation-for="emp.Phone"></span>
+                            </div>
+                        
+                    
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label asp-for="emp.Email"></label>
+                        </div>
+                    </div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" asp-for="emp.Email" />
+                            <span asp-validation-for="emp.Email"></span>
+                        </div>
+                    </div>
+                
+
+            
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label>Country</label>
+                    </div>
+                </div>
+                        <div class="col-lg-4">
+                            <select class="form-control" asp-for="emp.Country_ID" asp-items='new SelectList(Model.countries,"ID","Name")'></select>
+                        </div>
+                    
+                
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label>Department</label>
+                    </div>
+                </div>
+                        <div class="col-lg-4">
+                            <select class="form-control" asp-for="emp.Department_Id" asp-items='new SelectList(Model.departments,"ID","DepartmentName")'></select>
+                        </div>
+                    
+                
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label asp-for="emp.BirthDate"></label>
+                    </div>
+                </div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" asp-for="emp.BirthDate" />
+                            <span asp-validation-for="emp.BirthDate"></span>
+                        </div>
+                    
+                
+
+            </div>
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label asp-for="emp.Image"></label>
+                    </div>
+                    </div>
+                        <div class="col-lg-4">
+                            <input type="file" asp-for="emp.Image"/>
+                        </div>
+                
+                
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9">
+                    <input type="submit" value="Save" class="btn btn-primary" asp-action="Save"/>
+                </div>
+
+            </div>
+
+
+            </div>
+
+        
+    </form>
+</body>
+</html>
